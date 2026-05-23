@@ -1,0 +1,59 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual Environment
+venv/
+env/
+
+# Environment Variables
+.env
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+
+# Docker
+docker-data/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Jenkins
+jenkins_home/
+
+# Kubernetes
+.kube/
+
+# Terraform
+*.tfstate
+*.tfstate.backup
+.terraform/
+
+# Coverage Reports
+coverage/
+
+# Node Modules
+node_modules/
+
+# Build Files
+dist/
+build/
+
+# Temporary Files
+tmp/
+temp/
+
+# Minikube
+.minikube/
+
+# Grafana Data
+grafana-data/
+
+# Prometheus Data
+prometheus-data/
