@@ -1,23 +1,46 @@
 pipeline {
+
     agent any
 
     stages {
 
-        stage('Clone') {
+        stage('Clone Repository') {
+
             steps {
+
                 git 'https://github.com/Hanisha-Bogadhi/shopsphere-devops-platform.git'
             }
         }
 
-        stage('Build') {
+        stage('Build Docker Images') {
+
             steps {
+
                 sh 'docker compose build'
             }
         }
 
-        stage('Deploy') {
+        stage('Stop Existing Containers') {
+
             steps {
+
+                sh 'docker compose down'
+            }
+        }
+
+        stage('Run Containers') {
+
+            steps {
+
                 sh 'docker compose up -d'
+            }
+        }
+
+        stage('Verify Containers') {
+
+            steps {
+
+                sh 'docker ps'
             }
         }
     }

@@ -1,0 +1,35 @@
+# FINAL URLS
+
+Frontend:
+
+```text
+http://localhost
+```
+
+Product API:
+
+```text
+http://localhost/products
+```
+
+Cart API:
+
+```text
+http://localhost/cart
+```
+
+Prometheus:
+
+```text
+http://localhost:9090
+```
+
+Grafana:
+
+```text
+http://localhost:3000
+```
+
+---
+
+
