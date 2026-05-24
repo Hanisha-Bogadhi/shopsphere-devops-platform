@@ -43,7 +43,7 @@ pipeline {
 
             steps {
 
-                sh 'docker-compose down || true'
+                sh 'docker-compose down -v || true'
             }
         }
 
