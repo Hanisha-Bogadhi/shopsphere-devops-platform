@@ -22,6 +22,14 @@ pipeline {
                 sh 'ls -la monitoring'
             }
         }
+        stage('Cleanup Old Containers') {
+
+    steps {
+
+        sh 'docker-compose down -v || true'
+        sh 'docker system prune -af || true'
+        }
+    }
 
         stage('Build Docker Images') {
 
