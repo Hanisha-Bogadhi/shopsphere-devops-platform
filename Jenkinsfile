@@ -13,6 +13,16 @@ pipeline {
             }
         }
 
+        stage('Check Monitoring Files') {
+
+            steps {
+
+                sh 'pwd'
+                sh 'ls -la'
+                sh 'ls -la monitoring'
+            }
+        }
+
         stage('Build Docker Images') {
 
             steps {
