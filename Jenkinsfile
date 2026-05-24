@@ -8,7 +8,8 @@ pipeline {
 
             steps {
 
-                git 'https://github.com/Hanisha-Bogadhi/shopsphere-devops-platform.git'
+                git branch: 'main',
+                    url: 'https://github.com/Hanisha-Bogadhi/shopsphere-devops-platform.git'
             }
         }
 
@@ -24,7 +25,7 @@ pipeline {
 
             steps {
 
-                sh 'docker-compose down'
+                sh 'docker-compose down || true'
             }
         }
 
