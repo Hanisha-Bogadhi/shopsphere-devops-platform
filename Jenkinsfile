@@ -51,7 +51,7 @@ pipeline {
 
             steps {
 
-                sh 'docker-compose up -d'
+                sh 'docker-compose up -d --build --force-recreate'
             }
         }
 
@@ -59,7 +59,7 @@ pipeline {
 
             steps {
 
-                sh 'docker ps'
+                sh 'docker ps -a'
             }
         }
     }
