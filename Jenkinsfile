@@ -13,37 +13,19 @@ pipeline {
             }
         }
 
-        stage('Check Monitoring Files') {
+        stage('Cleanup') {
 
             steps {
 
-                sh 'pwd'
-                sh 'ls -la'
-                sh 'ls -la monitoring'
+                sh 'docker compose down -v || true'
             }
         }
-        stage('Cleanup Old Containers') {
-
-    steps {
-
-        sh 'docker-compose down -v || true'
-        sh 'docker system prune -af || true'
-        }
-    }
 
         stage('Build Docker Images') {
 
             steps {
 
-                sh 'docker-compose build'
-            }
-        }
-
-        stage('Stop Existing Containers') {
-
-            steps {
-
-                sh 'docker-compose down -v || true'
+                sh 'docker compose build --no-cache'
             }
         }
 
@@ -51,7 +33,7 @@ pipeline {
 
             steps {
 
-                sh 'docker-compose up -d --build --force-recreate'
+                sh 'docker compose up -d --build --force-recreate'
             }
         }
 
