@@ -13,30 +13,27 @@ pipeline {
             }
         }
 
-        stage('Cleanup Old Containers') {
-
-            steps {
-
-                sh 'docker compose down -v || true'
-            }
-        }
-
         stage('Build Containers') {
+
             steps {
-                sh 'docker-compose build --no-cache'
+
+                sh 'docker-compose build'
             }
         }
 
         stage('Run Containers') {
+
             steps {
-                sh 'docker-compose up -d --force-recreate'
+
+                sh 'docker-compose up -d'
             }
         }
-        stage('Verify Running Containers') {
+
+        stage('Verify Containers') {
 
             steps {
 
-                sh 'docker ps -a'
+                sh 'docker ps'
             }
         }
     }
