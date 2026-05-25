@@ -13,7 +13,7 @@ pipeline {
             }
         }
 
-        stage('Cleanup') {
+        stage('Cleanup Old Containers') {
 
             steps {
 
@@ -21,23 +21,18 @@ pipeline {
             }
         }
 
-        stage('Build Docker Images') {
-
+        stage('Build Containers') {
             steps {
-
-                sh 'docker compose build --no-cache'
+                sh 'docker-compose build --no-cache'
             }
         }
 
         stage('Run Containers') {
-
             steps {
-
-                sh 'docker compose up -d --build --force-recreate'
+                sh 'docker-compose up -d --force-recreate'
             }
         }
-
-        stage('Verify Containers') {
+        stage('Verify Running Containers') {
 
             steps {
 
