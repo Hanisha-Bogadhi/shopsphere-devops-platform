@@ -1,3 +1,65 @@
+
+# cart-service/app.py
+
+```python
+
+```
+
+---
+
+# cart-service/requirements.txt
+
+```txt
+flask
+```
+
+---
+
+# cart-service/Dockerfile
+
+```dockerfile
+
+```
+
+---
+
+# NGINX
+
+# nginx/nginx.conf
+
+```nginx
+
+```
+
+---
+
+# docker-compose.yml
+
+```yaml
+
+
+    
+```
+
+---
+
+# RUN PROJECT
+
+From project root:
+
+```bash
+docker compose down
+```
+
+Then:
+
+```bash
+docker compose up --build
+```
+
+---
+
+
 # FINAL URLS
 
 Frontend:
