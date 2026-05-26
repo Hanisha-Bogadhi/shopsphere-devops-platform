@@ -4,11 +4,15 @@ pipeline {
 
     stages {
 
-        stage('Checkout Code') {
+        stage('Clean Workspace') {
+            steps {
+                deleteDir()
+            }
+        }
+
+        stage('Clone Repository') {
 
             steps {
-
-                deleteDir()
 
                 git branch: 'main',
                     url: 'https://github.com/Hanisha-Bogadhi/shopsphere-devops-platform.git'
