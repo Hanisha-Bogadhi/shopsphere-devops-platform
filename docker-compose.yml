@@ -51,8 +51,6 @@ services:
   jenkins:
     image: jenkins/jenkins:lts
 
-    container_name: jenkins
-
     user: root
 
     ports:
