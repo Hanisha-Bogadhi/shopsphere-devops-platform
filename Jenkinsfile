@@ -13,23 +13,17 @@ pipeline {
             }
         }
 
-        stage('Build Containers') {
+        stage('Deploy Containers') {
 
             steps {
 
-                sh 'docker-compose build'
+                sh 'docker-compose down || true'
+
+                sh 'docker-compose up -d --build'
             }
         }
 
-        stage('Run Containers') {
-
-            steps {
-
-                sh 'docker-compose up -d'
-            }
-        }
-
-        stage('Verify Containers') {
+        stage('Verify Running Containers') {
 
             steps {
 
