@@ -4,26 +4,20 @@ pipeline {
 
     stages {
 
-        stage('Clean Workspace') {
+        stage('Verify Workspace') {
             steps {
-                deleteDir()
-            }
-        }
-
-        stage('Clone Repository') {
-
-            steps {
-
-                git branch: 'main',
-                    url: 'https://github.com/Hanisha-Bogadhi/shopsphere-devops-platform.git'
-
                 sh 'pwd'
                 sh 'ls -la'
             }
         }
 
-        stage('Deploy Containers') {
+        stage('Cleanup Old Containers') {
+            steps {
+                sh 'docker rm -f nginx frontend cart-service product-service prometheus grafana || true'
+            }
+        }
 
+        stage('Deploy Containers') {
             steps {
 
                 sh 'docker compose down || true'
@@ -33,9 +27,7 @@ pipeline {
         }
 
         stage('Verify Running Containers') {
-
             steps {
-
                 sh 'docker ps'
             }
         }
