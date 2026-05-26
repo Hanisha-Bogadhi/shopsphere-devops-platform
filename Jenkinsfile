@@ -4,12 +4,17 @@ pipeline {
 
     stages {
 
-        stage('Clone Repository') {
+        stage('Checkout Code') {
 
             steps {
 
+                deleteDir()
+
                 git branch: 'main',
                     url: 'https://github.com/Hanisha-Bogadhi/shopsphere-devops-platform.git'
+
+                sh 'pwd'
+                sh 'ls -la'
             }
         }
 
@@ -17,9 +22,9 @@ pipeline {
 
             steps {
 
-                sh 'docker-compose down || true'
+                sh 'docker compose down || true'
 
-                sh 'docker-compose up -d --build'
+                sh 'docker compose up -d --build'
             }
         }
 
