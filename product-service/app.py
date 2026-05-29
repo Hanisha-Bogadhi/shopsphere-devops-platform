@@ -142,7 +142,9 @@ def products():
 
                     <p class="price">$120</p>
 
-                    <button>Add To Cart</button>
+                    <button onclick="window.location.href='/cart'">
+                        Add to Cart
+                    </button>
 
                 </div>
 
@@ -158,7 +160,9 @@ def products():
 
                     <p class="price">$80</p>
 
-                    <button>Add To Cart</button>
+                    <button onclick="window.location.href='/cart'">
+                        Add to Cart
+                    </button>
 
                 </div>
 
@@ -174,7 +178,9 @@ def products():
 
                     <p class="price">$150</p>
 
-                    <button>Add To Cart</button>
+                    <button onclick="window.location.href='/cart'">
+                        Add to Cart
+                    </button>
 
                 </div>
 
@@ -190,7 +196,9 @@ def products():
 
                     <p class="price">$200</p>
 
-                    <button>Add To Cart</button>
+                    <button onclick="window.location.href='/cart'">
+                        Add to Cart
+                    </button>
 
                 </div>
 
@@ -206,7 +214,10 @@ def products():
 
                     <p class="price">$95</p>
 
-                    <button>Add To Cart</button>
+                    <button onclick="window.location.href='/cart'">
+                        Add to Cart
+                    </button>
+
 
                 </div>
 
@@ -222,10 +233,12 @@ def products():
 
                     <p class="price">$180</p>
 
-                    <button>Add To Cart</button>
+                    <button onclick="window.location.href='/cart'">
+                        Add to Cart
+                    </button>
 
                 </div>
-
+            
             </div>
 
         </div>
