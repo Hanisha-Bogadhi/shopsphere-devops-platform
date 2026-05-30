@@ -9,37 +9,7 @@ The platform consists of multiple Dockerized services deployed on AWS EC2 using 
 ---
 
 ## Architecture
-
-```text
-Developer
-    │
-    ▼
-GitHub Repository
-    │
-    ▼
-GitHub Actions CI/CD
-    │
-    ▼
-Docker Hub Registry
-    │
-    ▼
-AWS EC2 Instance
-    │
-    ▼
-Docker Compose
-    │
-    ▼
-Nginx Reverse Proxy
-    │
-    ├────────────► Frontend Service
-    │
-    ├────────────► Product Service
-    │
-    └────────────► Cart Service
-    │
-    ▼
-Prometheus + Grafana + cAdvisor
-```
+![Architecture](screenshots\architecture image.png)
 
 ---
 
