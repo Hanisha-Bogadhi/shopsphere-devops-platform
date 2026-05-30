@@ -1,19 +1,18 @@
 services:
 
   frontend:
-    image: hanishabogadhi/frontend:latest
-    container_name: frontend
+    build: ./frontend
     ports:
       - "3001:80"
 
   cart-service:
-    image: hanishabogadhi/cart-service:latest
+    build: ./cart-service
     container_name: cart-service
     ports:
       - "5000:5000"
 
   product-service:
-    image: hanishabogadhi/product-service:latest
+    build: ./product-service
     container_name: product-service
     ports:
       - "5001:5001"
@@ -24,7 +23,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./nginx:/etc/nginx/conf.d
+    - ./nginx:/etc/nginx/conf.d
     depends_on:
       - frontend
       - cart-service
@@ -32,7 +31,6 @@ services:
 
   prometheus:
     image: prom/prometheus
-    container_name: prometheus
     ports:
       - "9090:9090"
     volumes:
@@ -40,31 +38,29 @@ services:
     command:
       - "--config.file=/etc/prometheus/prometheus.yml"
     networks:
-      - monitoring
+    - monitoring
 
   grafana:
     image: grafana/grafana
-    container_name: grafana
     ports:
       - "3000:3000"
-    depends_on:
-      - prometheus
     networks:
-      - monitoring
+    - monitoring
 
   cadvisor:
     image: gcr.io/cadvisor/cadvisor:latest
-    container_name: cadvisor
+
     ports:
       - "8081:8080"
-    privileged: true
+
     volumes:
       - /:/rootfs:ro
       - /var/run:/var/run:ro
       - /sys:/sys:ro
-      - /var/lib/docker:/var/lib/docker:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+
     networks:
-      - monitoring
+    - monitoring
 
 networks:
   monitoring:
