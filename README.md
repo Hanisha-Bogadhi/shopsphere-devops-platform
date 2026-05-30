@@ -9,7 +9,7 @@ The platform consists of multiple Dockerized services deployed on AWS EC2 using 
 ---
 
 ## Architecture
-![ShopSphere Architecture](screenshots/architecture image.png)
+![ShopSphere Architecture](screenshots/architecture-image.png)
 
 ---
 
